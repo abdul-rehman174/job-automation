@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Job Agent — Autonomous Applications</title>
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+<header>
+  <div class="brand">
+    <span class="dot"></span>
+    <h1>Job Agent</h1>
+    <span class="sub">autonomous discovery &amp; applications</span>
+  </div>
+  <div class="controls">
+    <button id="btn-start" class="primary">START</button>
+    <button id="btn-pause">PAUSE</button>
+    <button id="btn-resume">RESUME</button>
+    <button id="btn-stop" class="danger">STOP</button>
+    <span id="state-badge" class="badge">idle</span>
+  </div>
+</header>
+
+<main>
+  <section class="limitations" id="limitations"></section>
+
+  <section class="cards" id="stats-cards"></section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>Live activity</h2>
+      <span id="stage-label" class="muted">stage: idle</span>
+    </div>
+    <div id="activity" class="activity"></div>
+    <div id="sources" class="sources"></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>Applications</h2>
+      <div class="tabs">
+        <button class="tab active" data-filter="">all</button>
+        <button class="tab" data-filter="submitted">submitted</button>
+        <button class="tab" data-filter="skipped">skipped</button>
+        <button class="tab" data-filter="needs_manual_review">manual review</button>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table id="app-table">
+        <thead><tr>
+          <th>Company</th><th>Position</th><th>Status</th><th>ATS</th>
+          <th>CV</th><th>Evidence / reason</th><th>Date</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head"><h2>Skipped for manual review</h2>
+      <input id="skip-search" placeholder="Search skipped applications…" />
+    </div>
+    <div class="table-wrap">
+      <table id="skip-table">
+        <thead><tr>
+          <th>Company</th><th>Job title</th><th>Reason</th><th>ATS</th>
+          <th>Prepared CV</th><th>Open listing</th><th>Date skipped</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span class="muted">Statistics come from the persistent database. Only employer-confirmed submissions count as submitted.</span>
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
